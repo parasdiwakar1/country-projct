@@ -12,10 +12,10 @@ Welcome to **Country Explorer**—an engaging and user-friendly web app built to
 ## Screenshots
 
 ### Desktop View
-![Country Explorer - Desktop View](https://github.com/user-attachments/assets/1e2d3484-9d80-47f0-a202-c9410ba31885)
+![Country Explorer - Desktop View](https://github.com/user-attachments/assets/a5ac920d-c60a-4137-887d-5816e3aed762)
 
 ### Mobile View
-![Country Explorer - Mobile View](https://github.com/user-attachments/assets/23c19b9f-ba24-4653-920f-209778788e01)
+![Country Explorer - Mobile View](https://github.com/user-attachments/assets/e8457c0f-2092-4c82-af26-02f3bd2c92be)
 
 ## Responsiveness
 
@@ -36,3 +36,4 @@ To run the project locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/country-explorer.git
    cd country-explorer
+   
