@@ -23,7 +23,7 @@ function displayCountries(countries) {
     countryCard.innerHTML = `
       <img class='main-img' src="${country.flags.png}" alt="Flag of ${country.name.common}" onclick="showCountryDetails('${country.name.common}')">
       <h3>${country.name.common}</h3>
-      <button class="like-button" onclick="toggleWishlist('${country.name.common}', this)">❤️</button>
+      <button class="like-button" onclick="toggleWishlist('${country.name.common}', this)"><i class="fa-regular fa-heart" style="color: #181616;"></i></button>
     `;
     countryList.appendChild(countryCard);
   });
@@ -139,5 +139,88 @@ document.getElementById('showMoreBtn').addEventListener('click', () => {
 
 document.getElementById('languageFilter').addEventListener('change', filterCountries);
 document.getElementById('regionFilter').addEventListener('change', filterCountries);
+
+function toggleWishlist(countryName, button) {
+  if (wishlist.includes(countryName)) {
+    wishlist = wishlist.filter(name => name !== countryName);
+    button.classList.remove('liked'); 
+  } else if (wishlist.length < 5) {
+    wishlist.push(countryName);
+    button.classList.add('liked'); 
+  } else {
+    alert("Wishlist can only contain up to 5 countries.");
+  }
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  displayWishlist();
+}
+
+function displayWishlist() {
+  const wishlistList = document.getElementById('wishlist');
+  wishlistList.innerHTML = wishlist.length ? `<h3>Wishlist</h3>` : '';
+
+  wishlist.forEach(wished => {
+    const country = allCountries.find(c => c.name.common === wished);
+    if (country) {
+      const wishItem = document.createElement('div');
+      wishItem.className = 'wish-item';
+      wishItem.innerHTML = `
+        <img class='wish-img' src="${country.flags.png}" alt="Flag of ${country.name.common}" class="wishlist-flag">
+        <p>${country.name.common} <button class="Remove" onclick="removeWishlist('${wished}')">Remove</button></p>
+      `;
+      wishlistList.appendChild(wishItem);
+    }
+  });
+}
+
+function toggleWishlistPage() {
+  const wishlistPage = document.getElementById('wishlistPage');
+  const mainPage = document.getElementById('mainPage');
+  if (wishlistPage.style.display === 'none') {
+    wishlistPage.style.display = 'block';
+    mainPage.style.display = 'none';
+    displayWishlist();
+  } else {
+    wishlistPage.style.display = 'none';
+    mainPage.style.display = 'block';
+  }
+}
+
+function removeWishlist(countryName) {
+  wishlist = wishlist.filter(name => name !== countryName);
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  displayWishlist();
+}
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  const query = this.value.toLowerCase();
+  const suggestions = allCountries
+    .filter(country => country.name.common.toLowerCase().includes(query))
+    .slice(0, 5);
+  const suggestionsContainer = document.getElementById('searchSuggestions');
+  suggestionsContainer.innerHTML = suggestions
+    .map(country => `<p class="suggestion-item" onclick="searchCountry('${country.name.common}')">${country.name.common}</p>`)
+    .join('');
+  const viewAllBtn = `<button onclick="viewAllResults('${query}')">View All</button>`;
+  suggestionsContainer.innerHTML += viewAllBtn;
+});
+
+function searchCountry(name) {
+  const country = allCountries.find(c => c.name.common === name);
+  if (country) {
+    displayCountries([country]);
+    document.getElementById('searchSuggestions').innerHTML = '';
+  }
+}
+
+function viewAllResults(query) {
+  const results = allCountries.filter(country => country.name.common.toLowerCase().includes(query));
+  displayCountries(results);
+  document.getElementById('searchSuggestions').innerHTML = '';
+}
+
+document.getElementById('wishlistBtn').addEventListener('click', toggleWishlistPage);
+
+fetchCountries();
+
 
 fetchCountries();

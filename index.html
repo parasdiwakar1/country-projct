@@ -5,24 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Country Explorer</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header class="navbar">
     <h1 class="title">Country Explorer</h1>
     <nav>
-      
+      <button id="wishlistBtn" class="wishlist-btn"> <i class="fa-solid fa-heart" style="color: #ff0000;"></i>  Wishlist</button>
     </nav>
   </header>
-
   <div class="container">
     <div class="main-content" id="mainPage">
       <input type="text" id="searchInput" class="search-input" placeholder="Search countries..." />
-      <button class="sBtn">Search</button>
       <div id="searchSuggestions" class="suggestions-container"></div>
       <div class="filters">
-        
         <select id="languageFilter" class="filter-select">
           <option value="">Filter by Language</option>
           <option value="English">English</option>
@@ -42,11 +38,18 @@
       <div id="countryList" class="country-list"></div>
       <button id="showMoreBtn" class="show-more-button">Show More</button>
     </div>
-    <div id="wishlist" class="wishlist-section"></div>
-    <div id="countryDetails" class="country-details"></div>
+
+ 
+    <div id="wishlistPage" class="wishlist-page" style="display: none;">
+      <h2>Your Wishlist</h2>
+      <div id="wishlist" class="wishlist-section"></div>
+      <button onclick="toggleWishlistPage()" class="back-button">Back to Main</button>
+     
+    </div>
+
+    <div id="countryDetails" class="country-details" style="display: none;"></div>
   </div>
   <footer class="footer">
-    
     <p>&copy; 2024 Country Explorer. All Rights Reserved.</p>
   </footer>
   <script src="app.js"></script>
