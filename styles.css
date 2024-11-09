@@ -15,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .country-list{
  display: flex;
  flex-wrap: wrap;
@@ -92,10 +93,12 @@ body {
 }
 
 .filter-select {
-    padding: 10px;
+    padding: 15px;
     border: 2px solid blue;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: border-color 0.3s;
+    width: 300px;
+    font-size: 15px;
 }
 
 .filter-select:hover {
@@ -117,6 +120,7 @@ body {
     background-color: white;
     justify-content: center;
     border: 2px solid blue;
+
     
 }
 /* Main container for wishlist page */
@@ -177,8 +181,8 @@ body {
 }
 
 .country-card img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -275,7 +279,12 @@ button {
     /* display:flex ; */
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 90%;
+}
+.country-details img{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
 }
 
 /* Footer */
@@ -301,11 +310,13 @@ button {
     .container {
         margin: 10px;
     }
-
+    .search-input{
+        width: 90%;
+    }
     .main-content {
         width: 100%;
     }
-
+    
     .wishlist-section {
         width: 100%;
     }
@@ -322,6 +333,6 @@ button {
 
     .country-card img {
         width: 100%;
-        max-width: 150px;
+        /* max-width: 150px; */
 }
 }
