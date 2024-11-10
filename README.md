@@ -12,7 +12,7 @@ Welcome to **Country Explorer**—an engaging and user-friendly web app built to
 ## Screenshots
 
 ### Desktop View
-![Country Explorer - Desktop View](https://github.com/user-attachments/assets/a5ac920d-c60a-4137-887d-5816e3aed762)
+![Country Explorer - Desktop View](https://github.com/user-attachments/assets/ae3e71cc-790c-41fd-806f-ec8b5253f0af)
 
 ### Mobile View
 ![Country Explorer - Mobile View](https://github.com/user-attachments/assets/e8457c0f-2092-4c82-af26-02f3bd2c92be)
@@ -36,4 +36,5 @@ To run the project locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/country-explorer.git
    cd country-explorer
-   
+   ![Uploading Screenshot 2024-11-10 211446.png…]()
+
